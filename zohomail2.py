@@ -268,7 +268,7 @@ def generate_pdf_report(vehicle_reg_number, title,  First_name, last_name, effec
 
     # Draw logo
     # Update this with the path to your logo file
-    logo_path = 'F:/TempCoverrr/TempCoverFiles/Logo.jpg'
+    logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/Logo.jpg'
     p.drawImage(logo_path, 40, 712, width=120, height=53.26)
     
     p.setFont("Helvetica-Bold", 16)
@@ -336,7 +336,7 @@ def generate_pdf_report(vehicle_reg_number, title,  First_name, last_name, effec
     p.drawString(100, 290, "27-43 Eastern Road")
     p.drawString(100, 280, "Romford")
     p.drawString(100, 270, "Essex RM1 3NH")
-    logo_path = 'F:/TempCoverrr/TempCoverFiles/Signature.jpg'
+    logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/Signature.jpg'
     p.drawImage(logo_path, 315, 300, width=80, height=20)
     p.drawString(310, 290, "NEIL MANVELL")
     p.drawString(310, 280, "Motor Underwriter")
@@ -370,7 +370,7 @@ def generate_pdf_report(vehicle_reg_number, title,  First_name, last_name, effec
     p.drawString(30, 120, "House, 27-43 Eastern Road, Romford, Essex, RM1 3NH.")
     
     footer_new_y_position = 27
-    footer_logo_path = 'F:\TempCoverrr\TempCoverFiles\TempcoverLogo.jpg'
+    footer_logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/TempcoverLogo.jpg'
     add_footer(p,footer_logo_path,footer_new_y_position )
     
     p.showPage()
@@ -384,7 +384,7 @@ def generate_additional_pdf_report(title, First_name, last_name, address, addres
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
     
-    logo_path = 'F:/TempCoverrr/TempCoverFiles/Logo.jpg'
+    logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/Logo.jpg'
     p.drawImage(logo_path, 410, 730, width=125, height=55.48)
     
     p.rect(33, 80, letter[0] - 73, 620)
@@ -468,13 +468,13 @@ def generate_additional_pdf_report(title, First_name, last_name, address, addres
     p.drawString(80,93, "IMPORTANT - You also must read the KGM Motor Proposer Declaration & Imporatant Notes on Pages 2 & 3")
     
     footer_new_y_position = 35
-    footer_logo_path = 'F:\TempCoverrr\TempCoverFiles\TempcoverLogo.jpg'
+    footer_logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/TempcoverLogo.jpg'
     add_footer(p,footer_logo_path,footer_new_y_position)
     
     
     p.showPage()
     
-    logo_path = 'F:/TempCoverrr/TempCoverFiles/Logo.jpg'
+    logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/Logo.jpg'
     p.drawImage(logo_path, 410, 738, width=125, height=55.48)
     p.setFont("Helvetica-Bold", 18)
     p.drawString(32, 720, "KGM MOTOR / PROPOSER DECLARATION")
@@ -562,7 +562,7 @@ def generate_additional_pdf_report(title, First_name, last_name, address, addres
     
     p.showPage()
     
-    logo_path = 'F:/TempCoverrr/TempCoverFiles/Logo.jpg'
+    logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/Logo.jpg'
     p.drawImage(logo_path, 410, 738, width=125, height=55.48)
     p.setFont("Helvetica", 9)
     p.drawString(48, 718, "7.")
@@ -684,7 +684,7 @@ def generate_third_pdf_report(title, First_name, last_name, address, address2, a
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
     
-    logo_path = 'F:/TempCoverrr/TempCoverFiles/Logo.jpg'
+    logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/Logo.jpg'
     p.drawImage(logo_path, 33, 730, width=128, height=56.79)
     
     p.rect(30, 720, letter[0] - 68, -192)
@@ -913,7 +913,7 @@ def generate_third_pdf_report(title, First_name, last_name, address, address2, a
     
     
     footer_new_y_position = 10
-    footer_logo_path = 'F:\TempCoverrr\TempCoverFiles\TempcoverLogo.jpg'
+    footer_logo_path = 'https://raw.githubusercontent.com/Pkkothapelly/test/main/TempcoverLogo.jpg'
     add_footer(p,footer_logo_path,footer_new_y_position)
     
     p.showPage()
