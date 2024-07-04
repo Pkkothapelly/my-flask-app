@@ -22,7 +22,7 @@ from email import encoders
 
 app = Flask(__name__)
 
-GITHUB_TOKEN = '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'  
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')  
 REPO_NAME = 'Pkkothapelly/TCFiles'  
 BASE_URL = 'https://api.github.com'
 
