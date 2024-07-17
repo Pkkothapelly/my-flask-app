@@ -31,7 +31,7 @@ BASE_URL = 'https://api.github.com'
 auth = HTTPBasicAuth()
 
 users = {
-    "admin": generate_password_hash(os.getenv('ADMIN_PASSWORD')),
+    "Wolf": generate_password_hash(os.getenv('ADMIN_PASSWORD')),
     "user": generate_password_hash(os.getenv('USER_PASSWORD'))
 }
 
