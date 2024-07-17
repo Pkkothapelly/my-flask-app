@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, make_response, send_file
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import io
@@ -26,13 +28,28 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 REPO_NAME = 'Pkkothapelly/TCFiles'  
 BASE_URL = 'https://api.github.com'
 
+auth = HTTPBasicAuth()
+
+users = {
+    "admin": generate_password_hash(os.getenv('ADMIN_PASSWORD')),
+    "user": generate_password_hash(os.getenv('USER_PASSWORD'))
+}
+
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and check_password_hash(users.get(username), password):
+        return username
+
 @app.route('/')
+@auth.login_required
 def index():
     error_message = request.args.get('error_message')
     success_message = request.args.get('success_message')
     return render_template('index.html', error=error_message, success=success_message)
 
 @app.route('/generate_pdf', methods=['POST'])
+@auth.login_required
 def generate_pdf():
     try:
         # Extract data from the form
@@ -68,6 +85,7 @@ def generate_pdf():
     
     
 @app.route('/generate_pdf2', methods=['POST'])
+@auth.login_required
 def generate_pdf2():
     try:
         # Extract data from the form
@@ -115,6 +133,7 @@ def generate_pdf2():
 
 
 @app.route('/generate_third_pdf', methods=['POST'])
+@auth.login_required
 def generate_third_pdf():
     try:
         title = request.form.get('title').strip()
@@ -152,6 +171,7 @@ def generate_third_pdf():
 
 
 @app.route('/store_pdf', methods=['POST'])
+@auth.login_required
 def store_pdf():
     try:
         # Extract data from the form
@@ -210,6 +230,7 @@ def store_pdf():
 
 
 @app.route('/send_email', methods=['POST'])
+@auth.login_required
 def send_email():
     try:
         # Retrieve form data
