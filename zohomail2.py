@@ -997,8 +997,8 @@ def send_email_with_attachment(pdf_data1, pdf_data2, pdf_data3, recipient_email)
 
 def generate_html_content(policy_number, first_name, last_name, vehicle_reg_number, effective_datetime, expiry_datetime):
     # Format dates
-    start_date_str = effective_datetime.strftime("%A, %d %B %Y at %I:%M %p")
-    end_date_str = expiry_datetime.strftime("%A, %d %B %Y at %I:%M %p")
+    start_date_str = effective_datetime.strftime("%A, %d %B %Y at %H:%M")
+    end_date_str = expiry_datetime.strftime("%A, %d %B %Y at %H:%M")
     
     # Generate the HTML content with inline CSS
     html_content = f"""
