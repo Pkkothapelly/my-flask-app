@@ -745,7 +745,7 @@ def generate_third_pdf_report(title, First_name, last_name, address, address2, a
     p.drawString(37, 549,"Vehicle Value:")
     p.drawString(205, 549,"Make and Model of Vehicle:")
     
-    p.setFont("Helvetica-Bold", 12)
+    p.setFont("Helvetica", 12)
     p.drawString(37,630,"{}".format(address))
     p.drawString(37,617,"{}, {}".format(address2, address3))
     p.drawString(37,604,"{}".format(postcode))
