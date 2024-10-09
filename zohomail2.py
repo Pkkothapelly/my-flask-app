@@ -266,7 +266,7 @@ def send_email():
         pdf_data1 = generate_pdf_report(vehicle_reg_number, title, First_name, last_name, effective_datetime, expiry_datetime)
         pdf_data2 = generate_additional_pdf_report(title, First_name, last_name, address, address2, address3, postcode,telephone, email, effective_date, effective_time, expiry_date, expiry_time ,effective_datetime, expiry_datetime, sex, dob, make, model, vehicle_reg_number, vehicle_value)
         
-        pdf_data3 = generate_third_pdf_report(title, First_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value, make, model)
+        pdf_data3 = generate_third_pdf_report(title, First_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value, make, model, insurance_premium_tax)
         
         
         # Send email with the combined PDF attachment
