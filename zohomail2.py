@@ -197,6 +197,8 @@ def store_pdf():
         model = request.form['model'].strip()
         vehicle_value_from = request.form['vehicle_value_from'].strip()
         vehicle_value_to = request.form['vehicle_value_to'].strip()
+        insurance_premium_tax = request.form['insurance_premium_tax'].strip()
+
         
         effective_datetime = datetime.strptime(effective_date + ' ' + effective_time, '%Y-%m-%d %H:%M')
         expiry_datetime = datetime.strptime(expiry_date + ' ' + expiry_time, '%Y-%m-%d %H:%M')
@@ -204,7 +206,7 @@ def store_pdf():
         # Generate the PDFs
         pdf_data1 = generate_pdf_report(vehicle_reg_number, title, first_name, last_name, effective_datetime, expiry_datetime, policy_num)
         pdf_data2 = generate_additional_pdf_report(title, first_name, last_name, address, address2, address3, postcode, telephone, email, effective_date, effective_time, expiry_date, expiry_time, effective_datetime, expiry_datetime, sex, dob, make, model, vehicle_reg_number, vehicle_value_from, vehicle_value_to)
-        pdf_data3 = generate_third_pdf_report(title, first_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value_from, vehicle_value_to, make, model, policy_num)
+        pdf_data3 = generate_third_pdf_report(title, first_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value_from, vehicle_value_to, make, model, policy_num, insurance_premium_tax)
         
         # Upload PDFs to the Pkkothapelly/TCFiles repository under the policy number folder
         upload_to_github(pdf_data1, "Certificate of Motor Insurance for KGM policy.pdf", "Pkkothapelly/TCFiles", policy_num)
