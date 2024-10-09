@@ -153,9 +153,10 @@ def generate_third_pdf():
         vehicle_value_to = request.form['vehicle_value_to'].strip()
         make = request.form['make'].strip()
         model = request.form['model'].strip()
+        insurance_premium_tax = request.form['insurance_premium_tax'].strip()
 
         # Generate PDF data
-        pdf_data = generate_third_pdf_report(title, First_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value_from, vehicle_value_to, make, model, policy_num)
+        pdf_data = generate_third_pdf_report(title, First_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value_from, vehicle_value_to, make, model, policy_num,insurance_premium_tax)
         
         # Upload PDF to GitHub
         upload_to_github(pdf_data, "New_Policy_Schedule_for_KGM_policy.pdf", policy_num)  # Use policy_num here
@@ -701,7 +702,7 @@ def generate_additional_pdf_report(title, First_name, last_name, address, addres
     buffer.close()
     return pdf_data
 
-def generate_third_pdf_report(title, First_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value_from, vehicle_value_to, make, model, policy_num):
+def generate_third_pdf_report(title, First_name, last_name, address, address2, address3, postcode, effective_date, effective_time, expiry_date, expiry_time, vehicle_reg_number, vehicle_value_from, vehicle_value_to, make, model, policy_num, insurance_premium_tax):
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer, pagesize=letter)
     
@@ -773,7 +774,7 @@ def generate_third_pdf_report(title, First_name, last_name, address, address2, a
     p.drawString(458,630, formatted_datetime1)
     
     p.drawString(478, 610, "New Business")
-    p.drawString(506, 590, "£19.21")
+    p.drawString(506, 590, f"£{insurance_premium_tax}")
     
     p.drawString(210, 569, "{}" .format(vehicle_reg_number))
     
